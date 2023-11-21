@@ -1,0 +1,8 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: #b185ab;
+}
+
+.swiper-pagination {
+  display: none;
+}
