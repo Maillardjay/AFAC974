@@ -59,7 +59,7 @@ function NavBarAdmin() {
           </Link>
         </div>
       </div>
-      <div className="flex pt-80 pl-6 pr-10">
+      <div className="flex pt-60 pl-6 pr-10 mb-48">
         <Link to="/" className="flex p-3 text-xl text-black">
           <div className="flex pt-10 pb-5  gap-10">
             <button type="submit" className="bg-white text-black py-2 px-4">

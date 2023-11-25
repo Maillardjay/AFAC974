@@ -35,7 +35,7 @@ function GalleryImage() {
           className="w-3/4 flex justify-center flex-col content-center flex-wrap pb-8"
           key={work.id}
         >
-          <h2 className="text-white text-1xl pb-4">{work.summary_title}</h2>
+          <h2 className="text-white text-1xl pb-4">{work.title}</h2>
           <ImageCard
             cls="max-h-[32rem] bg-gradient-to-t from-pink to-purple p-1"
             src={work.image_src}
