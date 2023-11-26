@@ -1,8 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import connexion from "../services/connexion";
+import { useCurrentUser } from "../contexts/UserContexts";
 import hexa from "../assets/hexa.png";
+import "react-toastify/dist/ReactToastify.css";
 
 function NavBarAdmin() {
+  const { setUser } = useCurrentUser();
+  const navigate = useNavigate();
+
+  const logout = async (event) => {
+    event.preventDefault();
+    try {
+      await connexion.post("/logout");
+      toast.success("Votre déconnexion à bien été effectué.");
+      setUser();
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="flex bg-black w-80 h-full text-white pl-5 flex-col items-left pt-40">
       <div className="pb-8">
@@ -62,7 +81,11 @@ function NavBarAdmin() {
       <div className="flex pt-60 pl-6 pr-10 mb-48">
         <Link to="/" className="flex p-3 text-xl text-black">
           <div className="flex pt-10 pb-5  gap-10">
-            <button type="submit" className="bg-white text-black py-2 px-4">
+            <button
+              type="submit"
+              className="bg-white text-black py-2 px-4"
+              onClick={logout}
+            >
               Deconnexion
             </button>
           </div>

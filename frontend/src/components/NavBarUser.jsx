@@ -1,9 +1,11 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import connexion from "../services/connexion";
 import UserIcon from "../assets/user.svg";
 import logo from "../assets/logo.png";
 import { useCurrentUser } from "../contexts/UserContexts";
+import "react-toastify/dist/ReactToastify.css";
 
 function NavBarUser() {
   const { user, setUser } = useCurrentUser();
@@ -13,6 +15,7 @@ function NavBarUser() {
     event.preventDefault();
     try {
       await connexion.post("/logout");
+      toast.success("Votre déconnexion à bien été effectué.");
       setUser();
       navigate("/");
     } catch (error) {

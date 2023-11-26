@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { useNavigate, Link } from "react-router-dom";
 import connexion from "../services/connexion";
 import { useCurrentUser } from "../contexts/UserContexts";
+import "react-toastify/dist/ReactToastify.css";
 
 function Auth() {
   const [userToLog, setUserToLog] = useState({
@@ -19,6 +21,7 @@ function Auth() {
     event.preventDefault();
     try {
       const log = await connexion.post("/login", userToLog);
+      toast.success("Vous êtes connecté à votre compte.");
       setUser(log);
       setTimeout(() => {
         navigate("/admin");
