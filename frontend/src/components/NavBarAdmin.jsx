@@ -1,8 +1,10 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import connexion from "../services/connexion";
 import { useCurrentUser } from "../contexts/UserContexts";
 import hexa from "../assets/hexa.png";
+import "react-toastify/dist/ReactToastify.css";
 
 function NavBarAdmin() {
   const { setUser } = useCurrentUser();
@@ -12,6 +14,7 @@ function NavBarAdmin() {
     event.preventDefault();
     try {
       await connexion.post("/logout");
+      toast.success("Votre déconnexion à bien été effectué.");
       setUser();
       navigate("/");
     } catch (error) {
