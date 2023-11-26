@@ -35,7 +35,7 @@ function UserFavourites() {
   };
 
   return (
-    <div className="bg-black h-full pt-32">
+    <div className="bg-black min-h-screen pt-32">
       <div className="relative  flex flex-col text-right mt-10">
         <h1 className="text-3xl text-white pr-[35px] z-10 pb-1">Favoris</h1>
         <div className=" h-[2px] bg-gradient-to-r from-pink to-purple z-10 ml-10 mr-10" />
@@ -44,7 +44,7 @@ function UserFavourites() {
             Vous n'avez pas encore de favoris.
           </div>
         )}
-        <div className="flex-col text-white ml-20 mt-16">
+        <div className="flex-col text-white ml-20">
           <div className="flex flex-col pb-40">
             {favourites.map((fav) => (
               <div key={fav.works_id}>
